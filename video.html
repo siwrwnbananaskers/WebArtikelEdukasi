@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Edukasi</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fa-solid fa-book"></i>Literasi</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="artikel.html" class="nav-link">Artikel</a></li>
+                <li><a href="video.html" class="nav-link active">Video</a></li>
+                <li><a href="tentang.html" class="nav-link">Tentang</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="search-container">
+            <input type="text" id="video-search-bar" placeholder="Cari video...">
+        </div>
+
+        <section class="video-list">
+            <h2>Daftar Video Edukasi</h2>
+            <div id="video-container">
+                <!-- Video Dummy -->
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/XtCInYeEGtM" allowfullscreen></iframe>
+                    <div class="video-content">
+                        <h2>Pengenalan HTML</h2>
+                        <p>Belajar dasar-dasar HTML dengan mudah.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/1PnVor36_40" allowfullscreen></iframe>
+                    <div class="video-content">
+                        <h2>Pengenalan CSS</h2>
+                        <p>Pelajari cara membuat tampilan website menarik.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/SDROba_M42g" allowfullscreen></iframe>
+
+                    <div class="video-content">
+                        <h2>Belajar JavaScript</h2>
+                        <p>Pemrograman JavaScript untuk pemula.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/eS8KwaQtMxA" allowfullscreen></iframe>
+                    <div class="video-content">
+                        <h2>Dasar-dasar Bootstrap</h2>
+                        <p>Membuat website responsif dengan Bootstrap.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/KcgtBiBg5KM" allowfullscreen></iframe>
+
+                    <div class="video-content">
+                        <h2>Belajar PHP</h2>
+                        <p>Dasar pemrograman backend dengan PHP.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/ArpVAwshAFU" allowfullscreen></iframe>
+                    <div class="video-content">
+                        <h2>Belajar MySQL</h2>
+                        <p>Database untuk pengembangan web.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/rNSfMxMPWqc" allowfullscreen></iframe>
+                    <div class="video-content">
+                        <h2>Pengenalan React</h2>
+                        <p>Framework JavaScript untuk frontend.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/iA8lLwmtKQM" allowfullscreen></iframe>
+                    <div class="video-content">
+                        <h2>Dasar-dasar Python</h2>
+                        <p>Belajar Python untuk pemrograman dasar.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/t5Sc8Z85GF4" allowfullscreen></iframe>
+                    <div class="video-content">
+                        <h2>Belajar UI/UX</h2>
+                        <p>Memahami desain antarmuka pengguna.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" allowfullscreen></iframe>
+                    <div class="video-content">
+                        <h2>Sejarah YouTube</h2>
+                        <p>Video pertama yang pernah diunggah ke YouTube.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Edukasi Online. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Pencarian Video
+            const videoSearchInput = document.getElementById("video-search-bar");
+            const videoCards = document.querySelectorAll(".video-card");
+
+            function searchVideos() {
+                let keyword = videoSearchInput.value.toLowerCase();
+
+                videoCards.forEach(video => {
+                    let title = video.querySelector(".video-content h2").textContent.toLowerCase();
+                    video.style.display = title.includes(keyword) ? "block" : "none";
+                });
+            }
+
+            if (videoSearchInput) {
+                videoSearchInput.addEventListener("input", searchVideos);
+            }
+
+            // Efek Hover pada Card Video
+            videoCards.forEach(video => {
+                video.addEventListener("mouseover", function () {
+                    this.style.transform = "scale(1.05)";
+                    this.style.transition = "0.3s";
+                });
+                video.addEventListener("mouseout", function () {
+                    this.style.transform = "scale(1)";
+                });
+            });
+
+            // Menandai halaman aktif berdasarkan URL
+            const currentUrl = window.location.pathname.split("/").pop();
+            const links = document.querySelectorAll(".nav-link");
+
+            links.forEach(link => {
+                link.classList.add("hover");
+
+                if (link.getAttribute("href") === currentUrl) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

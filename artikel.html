@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Edukasi</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fa-solid fa-book"></i>Literasi</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="artikel.html" class="nav-link">Artikel</a></li>
+                <li><a href="video.html" class="nav-link">Video</a></li>
+                <li><a href="tentang.html" class="nav-link">Tentang</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="artikel-list">
+            <h2>Daftar Artikel</h2>
+            
+            <!-- Kotak Pencarian -->
+            <div class="search-container">
+                <input type="text" id="search-bar" placeholder="Cari artikel...">
+                <button id="search-btn">Cari</button>
+            </div>
+
+            <!-- Container untuk daftar artikel -->
+            <div id="artikel-container">
+                <div class="artikel-card">
+                    <img src="assets/art1.JPG" alt="Cara Belajar HTML">
+                    <div class="artikel-content">
+                        <h2>Cara Belajar HTML</h2>
+                        <p>Pelajari dasar-dasar HTML untuk membangun halaman web dari awal.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="artikel-card">
+                    <img src="assets/art2.JPG" alt="Cara Belajar HTML">
+                    <div class="artikel-content">
+                        <h2>Dasar CSS untuk Pemula</h2>
+                        <p>Mulai memahami CSS untuk mendesain tampilan website dengan menarik.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="artikel-card">
+                    <img src="assets/art3.JPG" alt="Cara Belajar HTML">   
+                    <div class="artikel-content">
+                        <h2>Memahami JavaScript</h2>
+                        <p>Pelajari bagaimana JavaScript bekerja untuk menambah interaksi pada website.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="artikel-card">
+                    <img src="assets/art4.JPG" alt="Cara Belajar HTML">
+                    <div class="artikel-content">
+                        <h2>Panduan Menggunakan Bootstrap</h2>
+                        <p>Gunakan Bootstrap untuk mempercepat pengembangan desain website responsif.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+
+                <div class="artikel-card">
+                    <img src="assets/art5.JPG" alt="Cara Belajar HTML">
+                    <div class="artikel-content">
+                        <h2>Mengenal SEO untuk Website</h2>
+                        <p>Pahami dasar-dasar SEO untuk meningkatkan visibilitas website di Google.</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Edukasi Online. Semua Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        // Menandai halaman aktif berdasarkan URL
+        const currentUrl = window.location.pathname.split("/").pop();
+        const links = document.querySelectorAll(".nav-link");
+
+        links.forEach(link => {
+            link.classList.add("hover");
+            if (link.getAttribute("href") === currentUrl) {
+                link.classList.add("active");
+            }
+        });
+
+        // Pencarian Artikel
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("search-bar");
+            const searchButton = document.getElementById("search-btn");
+            const articles = document.querySelectorAll("#artikel-container .artikel-card");
+
+            function searchArticles() {
+                let keyword = searchInput.value.toLowerCase();
+
+                articles.forEach(article => {
+                    let title = article.querySelector(".artikel-content h2").textContent.toLowerCase();
+                    article.style.display = title.includes(keyword) ? "block" : "none";
+                });
+            }
+
+            // Event pencarian saat tombol "Cari" ditekan
+            searchButton.addEventListener("click", searchArticles);
+
+            // Event pencarian saat mengetik di input
+            searchInput.addEventListener("input", searchArticles);
+        });
+    </script>
+</body>
+</html>
