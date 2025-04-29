@@ -1,29 +1,25 @@
-WebArtikelEdukasi
-WebArtikelEdukasi adalah aplikasi web edukatif yang menyajikan konten berupa artikel dan video pembelajaran. Website ini dirancang dengan frontend HTML, CSS, JavaScript, serta backend PHP dan MySQL. Tersedia halaman admin untuk mengelola konten secara dinamis (CRUD).
 
-🔧 Fitur Utama
-👨‍🎓 Pengunjung Umum
-Beranda: Tampilan awal berisi pengantar dan konten unggulan.
+# WebArtikelEdukasi
 
-Artikel: Daftar artikel edukatif yang bisa dibaca langsung.
+**WebArtikelEdukasi** adalah aplikasi web edukatif yang menyajikan konten berupa artikel dan video pembelajaran. Website ini dirancang dengan frontend HTML, CSS, JavaScript, serta backend PHP dan MySQL. Tersedia halaman admin untuk mengelola konten secara dinamis (CRUD).
 
-Video: Daftar video edukasi yang bisa ditonton langsung.
+## 🔧 Fitur Utama
 
-Tentang: Informasi tentang platform dan tujuan edukasi.
+### 👨‍🎓 Pengunjung Umum
+- **Beranda**: Tampilan awal berisi pengantar dan konten unggulan.
+- **Artikel**: Daftar artikel edukatif yang bisa dibaca langsung.
+- **Video**: Daftar video edukasi yang bisa ditonton langsung.
+- **Tentang**: Informasi tentang platform dan tujuan edukasi.
 
-🔐 Admin
-Login sistem untuk admin.
+### 🔐 Admin
+- Login sistem untuk admin.
+- CRUD Artikel: tambah, ubah, hapus artikel (dengan upload gambar).
+- CRUD Video: tambah, ubah, hapus link video.
+- Artikel dan video yang dikelola akan ditampilkan di halaman pengguna.
 
-CRUD Artikel: tambah, ubah, hapus artikel (dengan upload gambar).
+## 🗂️ Struktur Direktori
 
-CRUD Video: tambah, ubah, hapus link video.
-
-Artikel dan video yang dikelola akan ditampilkan di halaman pengguna.
-
-🗂️ Struktur Direktori
-bash
-Copy
-Edit
+```bash
 WebArtikelEdukasi/
 │
 ├── index.php              # Beranda
@@ -54,59 +50,56 @@ WebArtikelEdukasi/
 │
 └── db/
     └── koneksi.php        # File koneksi ke database
-🛠️ Teknologi Digunakan
-Frontend: HTML5, CSS3 (dengan Flexbox/Grid), JavaScript
+```
 
-Backend: PHP (Native)
+## 🛠️ Teknologi Digunakan
 
-Database: MySQL
+- **Frontend**: HTML5, CSS3 (dengan Flexbox/Grid), JavaScript
+- **Backend**: PHP (Native)
+- **Database**: MySQL
+- **Fitur Interaktif**: JavaScript DOM untuk pencarian dan pemutaran video
 
-Fitur Interaktif: JavaScript DOM untuk pencarian dan pemutaran video
+## 💾 Instalasi dan Penggunaan
 
-💾 Instalasi dan Penggunaan
-Clone repositori ini atau ekstrak ZIP:
+1. **Clone repositori ini** atau ekstrak ZIP:
+   ```bash
+   git clone https://github.com/namauser/WebArtikelEdukasi.git
+   ```
 
-bash
-Copy
-Edit
-git clone https://github.com/namauser/WebArtikelEdukasi.git
-Impor database:
+2. **Impor database**:
+   - Buka `phpMyAdmin`
+   - Buat database baru, misal `artikel_edukasi`
+   - Import file SQL dari `/db/artikel_edukasi.sql` (jika tersedia)
 
-Buka phpMyAdmin
+3. **Konfigurasi koneksi database**:
+   - Buka `db/koneksi.php`
+   - Ubah sesuai dengan kredensial lokal Anda:
+     ```php
+     $conn = new mysqli("localhost", "root", "", "artikel_edukasi");
+     ```
 
-Buat database baru, misal artikel_edukasi
+4. **Jalankan website** di `localhost` (misalnya via XAMPP):
+   - Akses `http://localhost/WebArtikelEdukasi/index.php`
 
-Import file SQL dari /db/artikel_edukasi.sql (jika tersedia)
+## 🔐 Default Login Admin
 
-Konfigurasi koneksi database:
+| Username | Password |
+|----------|----------|
+| admin    | admin123 |
 
-Buka db/koneksi.php
+> ⚠️ Disarankan mengganti password default pada deployment.
 
-Ubah sesuai dengan kredensial lokal Anda:
+## 🧩 Catatan Pengembangan
 
-php
-Copy
-Edit
-$conn = new mysqli("localhost", "root", "", "artikel_edukasi");
-Jalankan website di localhost (misalnya via XAMPP):
+- Tambahkan validasi input di sisi frontend dan backend untuk keamanan.
+- Tambahkan fitur pagination pada daftar artikel/video.
+- Upload gambar artikel disimpan di folder `assets/images/`.
+- Fitur pencarian artikel bisa dikembangkan lebih lanjut dengan AJAX.
 
-Akses http://localhost/WebArtikelEdukasi/index.php
+## 📄 Lisensi
 
-🔐 Default Login Admin
-
-Username	Password
-admin	admin123
-⚠️ Disarankan mengganti password default pada deployment.
-
-🧩 Catatan Pengembangan
-Tambahkan validasi input di sisi frontend dan backend untuk keamanan.
-
-Tambahkan fitur pagination pada daftar artikel/video.
-
-Upload gambar artikel disimpan di folder assets/images/.
-
-Fitur pencarian artikel bisa dikembangkan lebih lanjut dengan AJAX.
-
-📄 Lisensi
 Proyek ini bersifat open-source dan dapat digunakan untuk keperluan edukasi atau pengembangan pribadi.
 
+---
+
+Jika Anda ingin, saya bisa mengecek isi file proyek untuk mengisi bagian seperti nama file SQL atau struktur tabel secara otomatis. Apakah Anda ingin saya lakukan itu?
